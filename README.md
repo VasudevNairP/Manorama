@@ -131,33 +131,6 @@ python -m unittest tests/test_backend.py
 
 ---
 
-## Vercel Deployment
-
-The project is structured for single-project deployment on Vercel:
-
-1. **Vercel Configuration (`vercel.json`)**:
-   ```json
-   {
-     "rewrites": [
-       { "source": "/api/(.*)", "destination": "/api/index.py" }
-     ],
-     "functions": {
-       "api/index.py": {
-         "maxDuration": 60
-       }
-     }
-   }
-   ```
-2. **Deploy via Vercel CLI or Dashboard**:
-   - Link the repository to Vercel.
-   - Set Build Command: `cd frontend && npm run build`
-   - Set Output Directory: `frontend/dist`
-   - Add Environment Variables in Vercel Project Settings:
-     - `GEMINI_API_KEY`: Your Google Gemini API key.
-     - `GEMINI_MODEL`: `gemini-2.5-flash` (optional, defaults to `gemini-2.5-flash`).
-
----
-
 ## How the Prompt Works & How Hallucination is Minimised
 
 The core intelligence resides in `api/prompts.py`. Rather than performing simple summarization or translation, the prompt enforces a 4-stage newsroom workflow within a single LLM execution:
