@@ -1,0 +1,11 @@
+{
+  "name": "manorama-ai",
+  "private": true,
+  "scripts": {
+    "dev:frontend": "cd frontend && npm run dev",
+    "dev:backend": ".venv/bin/uvicorn api.index:app --reload --port 8000",
+    "build:frontend": "cd frontend && npm run build",
+    "test:backend": ".venv/bin/python -m unittest tests/test_backend.py"
+  }
+}
+
