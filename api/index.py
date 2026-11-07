@@ -11,7 +11,10 @@ from dotenv import load_dotenv
 # Load local .env if available
 load_dotenv()
 
-from api.prompts import SYSTEM_PROMPT, build_user_prompt
+try:
+    from api.prompts import SYSTEM_PROMPT, build_user_prompt
+except ImportError:
+    from prompts import SYSTEM_PROMPT, build_user_prompt
 
 # Setup logging
 logging.basicConfig(level=logging.INFO)
